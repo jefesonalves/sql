@@ -34,6 +34,10 @@ FROM film;
 SELECT rental_duration, rental_duration + 5 AS aluguel 
 FROM film;
 
-# Traduzir as colunas title e description da tabela film
+# Exercício 2: Traduzir as colunas title e description da tabela film
 SELECT title AS Título, description AS Descrição
 FROM film;
+
+# Lista dados únicos da tabela
+SELECT DISTINCT country_id, city FROM city
+ORDER BY country_id;
