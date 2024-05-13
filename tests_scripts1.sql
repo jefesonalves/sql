@@ -41,3 +41,28 @@ FROM film;
 # Lista dados únicos da tabela
 SELECT DISTINCT country_id, city FROM city
 ORDER BY country_id;
+
+# Lista de filmes que foram alugados por mais de 7 dias da tabela film
+SELECT * FROM film
+WHERE rental_duration >= 7;
+
+# Ecercício 3: Listar os usuários desativados
+SELECT * FROM customer
+WHERE active != 1;
+
+# Uso do AND
+SELECT * FROM film
+WHERE rental_duration = 5 AND length > 90;
+
+# Uso do OR
+SELECT * FROM film
+WHERE title = "APOLLO TEEN" OR title = "ATTACKS HATE";
+
+# Uso do NOT
+SELECT * FROM film
+WHERE NOT rental_duration = 7;
+
+-- Exercício 4: Listar aluguel de um usuário com id 239 que não é
+-- o aluguel com id 2346 da tabela rental
+SELECT * FROM rental
+WHERE customer_id = 239 AND NOT inventory_id = 2346;
