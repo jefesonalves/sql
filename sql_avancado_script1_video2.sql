@@ -74,3 +74,45 @@ END//
 DELIMITER ;
 
 CALL get_movies_maior_igual_arg(2)
+
+-- Triggers
+CREATE TRIGGER before_update_customer
+	BEFORE UPDATE ON customer
+    FOR EACH ROW
+    SET NEW.last_update = NOW();
+
+-- Atualiza o registro da tabela
+UPDATE customer
+SET first_name = "teste"
+WHERE customer_id = 3;
+
+-- Verifica se foi alterado
+SELECT * FROM customer;
+
+-- Views
+CREATE VIEW film_and_category
+AS
+SELECT film_id, title, name
+FROM film
+JOIN film_category
+USING(film_id)
+JOIN category
+USING(category_id);
+
+-- Chama a view
+SELECT * FROM film_and_category;
+
+-- Exercício 5: Criar view com nome do cliente, rua e cidade
+CREATE VIEW dados_cliente
+AS
+SELECT first_name, last_name, address, city
+FROM customer
+JOIN address
+USING(address_id)
+JOIN city
+USING(city_id);
+
+-- Chama a view
+SELECT * FROM dados_cliente
+ORDER BY first_name ASC;
+
