@@ -62,3 +62,7 @@ alter table registro_presenca
 
 alter table registro_presenca
 	add constraint fk_situacao foreign key (id_situacao) references situacao (id_situacao);
+
+-- Inserir valores na tabela alunos
+INSERT INTO alunos(id_aluno, nome, data_nascimento, sexo, data_cadastro, login_cadastro)
+VALUES('1', 'Teste', '04/10/1985', 'M', '27/05/2024 17:05', 'teste_login');
